@@ -1,0 +1,10 @@
+
+https://github.com/Stark9850/prompt-generator-api.git
+
+git remote add origin https://github.com/Stark9850/prompt-generator-api.git
+
+git config --global user.name "Stark9850"
+git config --global user.email "starkml2023@gmail.com"
+
+
+https://prompt-generator-api-w81t.onrender.com

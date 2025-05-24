@@ -1,0 +1,673 @@
+{
+  "name": "Aivengers Prompt Playground",
+  "description": "\ud83e\udde0 Generate high-quality prompts across 9 use cases. Powered by Groq + Aivengers.",
+  "branding": {
+    "color": "#1E293B",
+    "accent": "#38BDF8",
+    "gradient": "linear-gradient(90deg, #38BDF8, #1E293B)",
+    "font": "Inter, sans-serif",
+    "logo": "",
+    "footer": {
+      "text": "\ud83d\udd17 Built by Aivengers \u2014 www.aivengers.in",
+      "link": "https://www.aivengers.in"
+    },
+    "badge": {
+      "text": "Aivengers",
+      "link": "https://www.aivengers.in"
+    }
+  },
+  "type": "remote",
+  "url": "https://prompt-generator-api-w81t.onrender.com/generate",
+  "method": "POST",
+  "inputs": [
+    {
+      "name": "pack",
+      "label": "Choose Prompt Pack",
+      "type": "select",
+      "options": [
+        "ai_agent_builder",
+        "cold_outreach",
+        "custom_prompt_builder",
+        "debug_helper",
+        "market_research",
+        "product_ideation",
+        "smart_email_assistant",
+        "video_script_generator",
+        "viral_linkedin_post"
+      ]
+    },
+    {
+      "name": "agent_name_role",
+      "label": "Agent Name/Role",
+      "type": "text",
+      "placeholder": "Defines agent identity; useful for instruction and context.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "objective_goal",
+      "label": "Objective/Goal",
+      "type": "text",
+      "placeholder": "Primary mission of the agent; central to defining purpose and functionality.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "domain_context",
+      "label": "Domain/Context",
+      "type": "textarea",
+      "placeholder": "Industry knowledge or environment; improves relevance and accuracy.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "tools_abilities",
+      "label": "Tools/Abilities",
+      "type": "text",
+      "placeholder": "External tools or APIs; expands agent capabilities and realism.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "constraints_rules",
+      "label": "Constraints/Rules",
+      "type": "text",
+      "placeholder": "Guardrails or limitations; ensures safety, compliance, and focus.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "persona_tone",
+      "label": "Persona/Tone",
+      "type": "text",
+      "placeholder": "Agent\u2019s communication style; enhances user experience and consistency.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "output_format",
+      "label": "Output Format",
+      "type": "text",
+      "placeholder": "How the agent should respond (list, JSON, etc.); aligns with expectations.",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "recipient_profile",
+      "label": "Recipient Profile",
+      "type": "text",
+      "placeholder": "Defines the target; enables personalization and tone adjustment.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "context_personalization",
+      "label": "Context/Personalization",
+      "type": "textarea",
+      "placeholder": "Creates relevance and trust through tailored intros.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "sender_profile",
+      "label": "Sender Profile",
+      "type": "text",
+      "placeholder": "Establishes credibility and context for the pitch.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "value_proposition",
+      "label": "Value Proposition",
+      "type": "text",
+      "placeholder": "Highlights why the message matters; the benefit to the recipient.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "ask_call_to_action",
+      "label": "Ask/Call-to-Action",
+      "type": "text",
+      "placeholder": "Prompts the next step; clarifies desired outcome.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "tone_style",
+      "label": "Tone/Style",
+      "type": "text",
+      "placeholder": "Influences approachability and formality.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "subject_line",
+      "label": "Subject Line",
+      "type": "text",
+      "placeholder": "First impression (for emails); impacts open rates and interest.",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "persona_role",
+      "label": "Persona/Role",
+      "type": "text",
+      "placeholder": "Defines the AI\u2019s identity and style of response.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "task_objective",
+      "label": "Task/Objective",
+      "type": "text",
+      "placeholder": "States the job to be done; anchors the prompt.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "context_background",
+      "label": "Context/Background",
+      "type": "textarea",
+      "placeholder": "Provides situational data or prior inputs; aids relevance.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "format_output_requirements",
+      "label": "Format/Output Requirements",
+      "type": "text",
+      "placeholder": "Shapes structure of output (e.g., list, JSON).",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "tone_style_guidelines",
+      "label": "Tone/Style Guidelines",
+      "type": "text",
+      "placeholder": "Refines voice and personality of the response.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "constraints_rules",
+      "label": "Constraints/Rules",
+      "type": "text",
+      "placeholder": "Adds guardrails to limit or enforce behavior.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "examples_few_shot",
+      "label": "Examples (Few-shot)",
+      "type": "text",
+      "placeholder": "Demonstrates desired outputs; improves specificity.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "additional_instructions",
+      "label": "Additional Instructions",
+      "type": "text",
+      "placeholder": "Covers any extra guiding behavior or meta steps.",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "programming_language",
+      "label": "Programming Language",
+      "type": "text",
+      "placeholder": "Aligns syntax and best practices with the language used.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "code_snippet",
+      "label": "Code Snippet",
+      "type": "text",
+      "placeholder": "Provides the logic for diagnosis; central to solving the issue.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "error_message_issue",
+      "label": "Error Message/Issue",
+      "type": "text",
+      "placeholder": "Pinpoints what went wrong; helps isolate the problem.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "expected_behavior",
+      "label": "Expected Behavior",
+      "type": "text",
+      "placeholder": "Clarifies intended outcome; distinguishes right from wrong behavior.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "steps_taken_attempts",
+      "label": "Steps Taken/Attempts",
+      "type": "text",
+      "placeholder": "Avoids redundant suggestions; informs debugging strategy.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "environment_details",
+      "label": "Environment Details",
+      "type": "text",
+      "placeholder": "Catches context-specific bugs; identifies version-related issues.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "output_preference",
+      "label": "Output Preference",
+      "type": "text",
+      "placeholder": "Defines if explanation, fix, or both are expected.",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "market_industry",
+      "label": "Market/Industry",
+      "type": "text",
+      "placeholder": "Sets the scope for insights; ensures topic relevance.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "geographic_scope",
+      "label": "Geographic Scope",
+      "type": "text",
+      "placeholder": "Targets research to specific markets or regions.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "key_topics_questions",
+      "label": "Key Topics/Questions",
+      "type": "text",
+      "placeholder": "Specifies what insights are needed; drives structured output.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "customer_persona",
+      "label": "Customer Persona",
+      "type": "text",
+      "placeholder": "Focuses insights on specific user segments.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "time_frame",
+      "label": "Time Frame",
+      "type": "text",
+      "placeholder": "Sets a window for analysis; current, historical, or forecast.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "preferred_format",
+      "label": "Preferred Format",
+      "type": "text",
+      "placeholder": "Defines how the results should be presented.",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "industry_domain",
+      "label": "Industry/Domain",
+      "type": "text",
+      "placeholder": "Defines the market context; sets background for ideation.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "target_customer",
+      "label": "Target Customer",
+      "type": "text",
+      "placeholder": "Focuses ideas on solving problems for specific users.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "problem_pain_point",
+      "label": "Problem/Pain Point",
+      "type": "text",
+      "placeholder": "Defines what needs solving; drives meaningful and relevant ideas.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "value_proposition_focus",
+      "label": "Value Proposition Focus",
+      "type": "text",
+      "placeholder": "Guides toward a unique competitive edge (e.g., speed, cost).",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "trends_tech_to_leverage",
+      "label": "Trends/Tech to Leverage",
+      "type": "text",
+      "placeholder": "Infuses innovation by leveraging current trends or technologies.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "constraints_criteria",
+      "label": "Constraints/Criteria",
+      "type": "text",
+      "placeholder": "Ensures ideas are feasible and aligned with real-world limits.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "output_detail_level",
+      "label": "Output Detail Level",
+      "type": "text",
+      "placeholder": "Controls depth of output; can range from summaries to full plans.",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "email_type_purpose",
+      "label": "Email Type/Purpose",
+      "type": "text",
+      "placeholder": "Establishes structure and tone based on intent.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "recipient_&_relationship",
+      "label": "Recipient & Relationship",
+      "type": "text",
+      "placeholder": "Tailors formality and phrasing to the relationship.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "key_points_to_include",
+      "label": "Key Points to Include",
+      "type": "text",
+      "placeholder": "Ensures essential information is conveyed.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "tone_formality",
+      "label": "Tone/Formality",
+      "type": "text",
+      "placeholder": "Sets mood and language style.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "email_length",
+      "label": "Email Length",
+      "type": "text",
+      "placeholder": "Controls brevity or depth based on situation.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "specific_phrases_or_style_guidelines",
+      "label": "Specific Phrases or Style Guidelines",
+      "type": "text",
+      "placeholder": "Adds or avoids phrases as needed; customizes style.",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "topic_title",
+      "label": "Topic/Title",
+      "type": "text",
+      "placeholder": "Central theme of the video; guides content and message.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "video_format_style",
+      "label": "Video Format/Style",
+      "type": "text",
+      "placeholder": "Defines structure and pacing; matches audience expectations.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "target_audience",
+      "label": "Target Audience",
+      "type": "text",
+      "placeholder": "Shapes tone and complexity; ensures relevance and engagement.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "tone_mood",
+      "label": "Tone/Mood",
+      "type": "text",
+      "placeholder": "Sets emotional impact and storytelling approach.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "duration_length",
+      "label": "Duration/Length",
+      "type": "text",
+      "placeholder": "Controls pacing and detail level of the script.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "key_points_outline",
+      "label": "Key Points/Outline",
+      "type": "text",
+      "placeholder": "Ensures all intended content is included and structured.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "visual_or_scene_directions",
+      "label": "Visual or Scene Directions",
+      "type": "text",
+      "placeholder": "Guides visual cues for syncing script with visuals.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "closing_message_cta",
+      "label": "Closing Message/CTA",
+      "type": "text",
+      "placeholder": "Wraps up the message and prompts viewer action.",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "topic_theme",
+      "label": "Topic/Theme",
+      "type": "text",
+      "placeholder": "Main subject of the post; defines focus and helps generate a strong hook.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "target_audience",
+      "label": "Target Audience",
+      "type": "text",
+      "placeholder": "Who the post is for; tailoring to the audience improves relevance and tone.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "personal_story_or_insight",
+      "label": "Personal Story or Insight",
+      "type": "textarea",
+      "placeholder": "Adds authenticity; makes the post more relatable and unique.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "tone_style",
+      "label": "Tone/Style",
+      "type": "text",
+      "placeholder": "Sets the emotional voice and engagement style of the post.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "call_to_action_cta",
+      "label": "Call-to-Action (CTA)",
+      "type": "text",
+      "placeholder": "Encourages interaction (comments, shares); boosts engagement and reach.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "hashtags_keywords",
+      "label": "Hashtags/Keywords",
+      "type": "text",
+      "placeholder": "Improves discoverability; categorizes the post for reach.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "length_format",
+      "label": "Length/Format",
+      "type": "text",
+      "placeholder": "Shapes readability and pacing; aligns with platform best practices.",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    }
+  ],
+  "body": {
+    "pack": "{{pack}}",
+    "inputs": {
+      "agent_name_role": "{{agent_name_role}}",
+      "objective_goal": "{{objective_goal}}",
+      "domain_context": "{{domain_context}}",
+      "tools_abilities": "{{tools_abilities}}",
+      "constraints_rules": "{{constraints_rules}}",
+      "persona_tone": "{{persona_tone}}",
+      "output_format": "{{output_format}}",
+      "recipient_profile": "{{recipient_profile}}",
+      "context_personalization": "{{context_personalization}}",
+      "sender_profile": "{{sender_profile}}",
+      "value_proposition": "{{value_proposition}}",
+      "ask_call_to_action": "{{ask_call_to_action}}",
+      "tone_style": "{{tone_style}}",
+      "subject_line": "{{subject_line}}",
+      "persona_role": "{{persona_role}}",
+      "task_objective": "{{task_objective}}",
+      "context_background": "{{context_background}}",
+      "format_output_requirements": "{{format_output_requirements}}",
+      "tone_style_guidelines": "{{tone_style_guidelines}}",
+      "examples_few_shot": "{{examples_few_shot}}",
+      "additional_instructions": "{{additional_instructions}}",
+      "programming_language": "{{programming_language}}",
+      "code_snippet": "{{code_snippet}}",
+      "error_message_issue": "{{error_message_issue}}",
+      "expected_behavior": "{{expected_behavior}}",
+      "steps_taken_attempts": "{{steps_taken_attempts}}",
+      "environment_details": "{{environment_details}}",
+      "output_preference": "{{output_preference}}",
+      "market_industry": "{{market_industry}}",
+      "geographic_scope": "{{geographic_scope}}",
+      "key_topics_questions": "{{key_topics_questions}}",
+      "customer_persona": "{{customer_persona}}",
+      "time_frame": "{{time_frame}}",
+      "preferred_format": "{{preferred_format}}",
+      "industry_domain": "{{industry_domain}}",
+      "target_customer": "{{target_customer}}",
+      "problem_pain_point": "{{problem_pain_point}}",
+      "value_proposition_focus": "{{value_proposition_focus}}",
+      "trends_tech_to_leverage": "{{trends_tech_to_leverage}}",
+      "constraints_criteria": "{{constraints_criteria}}",
+      "output_detail_level": "{{output_detail_level}}",
+      "email_type_purpose": "{{email_type_purpose}}",
+      "recipient_&_relationship": "{{recipient_&_relationship}}",
+      "key_points_to_include": "{{key_points_to_include}}",
+      "tone_formality": "{{tone_formality}}",
+      "email_length": "{{email_length}}",
+      "specific_phrases_or_style_guidelines": "{{specific_phrases_or_style_guidelines}}",
+      "topic_title": "{{topic_title}}",
+      "video_format_style": "{{video_format_style}}",
+      "target_audience": "{{target_audience}}",
+      "tone_mood": "{{tone_mood}}",
+      "duration_length": "{{duration_length}}",
+      "key_points_outline": "{{key_points_outline}}",
+      "visual_or_scene_directions": "{{visual_or_scene_directions}}",
+      "closing_message_cta": "{{closing_message_cta}}",
+      "topic_theme": "{{topic_theme}}",
+      "personal_story_or_insight": "{{personal_story_or_insight}}",
+      "call_to_action_cta": "{{call_to_action_cta}}",
+      "hashtags_keywords": "{{hashtags_keywords}}",
+      "length_format": "{{length_format}}"
+    }
+  },
+  "output_key": "prompt"
+}

@@ -1,0 +1,675 @@
+{
+  "name": "Aivengers Prompt Playground",
+  "description": "Build world-class prompts for AI with 1 click. Powered by Groq + Aivengers.",
+  "branding": {
+    "color": "#16213E",
+    "accent": "#00C3B9",
+    "font": "Inter, sans-serif",
+    "logo": "https://www.aivengers.in/favicon.ico"
+  },
+  "type": "remote",
+  "url": "https://prompt-generator-api-w81t.onrender.com/generate",
+  "method": "POST",
+  "inputs": [
+    {
+      "name": "pack",
+      "label": "Choose Prompt Pack",
+      "type": "select",
+      "options": [
+        "ai_agent_builder",
+        "cold_outreach",
+        "custom_prompt_builder",
+        "debug_helper",
+        "market_research",
+        "product_ideation",
+        "smart_email_assistant",
+        "video_script_generator",
+        "viral_linkedin_post",
+        "custom_prompt"
+      ]
+    },
+    {
+      "name": "agent_name_role",
+      "label": "Agent Name/Role",
+      "type": "text",
+      "placeholder": "Optional: Agent Name/Role",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "objective_goal",
+      "label": "Objective/Goal",
+      "type": "text",
+      "placeholder": "Optional: Objective/Goal",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "domain_context",
+      "label": "Domain/Context",
+      "type": "text",
+      "placeholder": "Optional: Domain/Context",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "tools_abilities",
+      "label": "Tools/Abilities",
+      "type": "text",
+      "placeholder": "Optional: Tools/Abilities",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "constraints_rules",
+      "label": "Constraints/Rules",
+      "type": "text",
+      "placeholder": "Optional: Constraints/Rules",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "persona_tone",
+      "label": "Persona/Tone",
+      "type": "text",
+      "placeholder": "Optional: Persona/Tone",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "output_format",
+      "label": "Output Format",
+      "type": "text",
+      "placeholder": "Optional: Output Format",
+      "showIf": {
+        "pack": "ai_agent_builder"
+      }
+    },
+    {
+      "name": "recipient_profile",
+      "label": "Recipient Profile",
+      "type": "text",
+      "placeholder": "Optional: Recipient Profile",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "context_personalization",
+      "label": "Context/Personalization",
+      "type": "text",
+      "placeholder": "Optional: Context/Personalization",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "sender_profile",
+      "label": "Sender Profile",
+      "type": "text",
+      "placeholder": "Optional: Sender Profile",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "value_proposition",
+      "label": "Value Proposition",
+      "type": "text",
+      "placeholder": "Optional: Value Proposition",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "ask_call_to_action",
+      "label": "Ask/Call-to-Action",
+      "type": "text",
+      "placeholder": "Optional: Ask/Call-to-Action",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "tone_style",
+      "label": "Tone/Style",
+      "type": "text",
+      "placeholder": "Optional: Tone/Style",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "subject_line",
+      "label": "Subject Line",
+      "type": "text",
+      "placeholder": "Optional: Subject Line",
+      "showIf": {
+        "pack": "cold_outreach"
+      }
+    },
+    {
+      "name": "persona_role",
+      "label": "Persona/Role",
+      "type": "text",
+      "placeholder": "Optional: Persona/Role",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "task_objective",
+      "label": "Task/Objective",
+      "type": "text",
+      "placeholder": "Optional: Task/Objective",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "context_background",
+      "label": "Context/Background",
+      "type": "text",
+      "placeholder": "Optional: Context/Background",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "format_output_requirements",
+      "label": "Format/Output Requirements",
+      "type": "text",
+      "placeholder": "Optional: Format/Output Requirements",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "tone_style_guidelines",
+      "label": "Tone/Style Guidelines",
+      "type": "text",
+      "placeholder": "Optional: Tone/Style Guidelines",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "constraints_rules",
+      "label": "Constraints/Rules",
+      "type": "text",
+      "placeholder": "Optional: Constraints/Rules",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "examples_few_shot",
+      "label": "Examples (Few-shot)",
+      "type": "text",
+      "placeholder": "Optional: Examples (Few-shot)",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "additional_instructions",
+      "label": "Additional Instructions",
+      "type": "text",
+      "placeholder": "Optional: Additional Instructions",
+      "showIf": {
+        "pack": "custom_prompt_builder"
+      }
+    },
+    {
+      "name": "programming_language",
+      "label": "Programming Language",
+      "type": "text",
+      "placeholder": "Optional: Programming Language",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "code_snippet",
+      "label": "Code Snippet",
+      "type": "text",
+      "placeholder": "Optional: Code Snippet",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "error_message_issue",
+      "label": "Error Message/Issue",
+      "type": "text",
+      "placeholder": "Optional: Error Message/Issue",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "expected_behavior",
+      "label": "Expected Behavior",
+      "type": "text",
+      "placeholder": "Optional: Expected Behavior",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "steps_taken_attempts",
+      "label": "Steps Taken/Attempts",
+      "type": "text",
+      "placeholder": "Optional: Steps Taken/Attempts",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "environment_details",
+      "label": "Environment Details",
+      "type": "text",
+      "placeholder": "Optional: Environment Details",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "output_preference",
+      "label": "Output Preference",
+      "type": "text",
+      "placeholder": "Optional: Output Preference",
+      "showIf": {
+        "pack": "debug_helper"
+      }
+    },
+    {
+      "name": "market_industry",
+      "label": "Market/Industry",
+      "type": "text",
+      "placeholder": "Optional: Market/Industry",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "geographic_scope",
+      "label": "Geographic Scope",
+      "type": "text",
+      "placeholder": "Optional: Geographic Scope",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "key_topics_questions",
+      "label": "Key Topics/Questions",
+      "type": "text",
+      "placeholder": "Optional: Key Topics/Questions",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "customer_persona",
+      "label": "Customer Persona",
+      "type": "text",
+      "placeholder": "Optional: Customer Persona",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "time_frame",
+      "label": "Time Frame",
+      "type": "text",
+      "placeholder": "Optional: Time Frame",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "preferred_format",
+      "label": "Preferred Format",
+      "type": "text",
+      "placeholder": "Optional: Preferred Format",
+      "showIf": {
+        "pack": "market_research"
+      }
+    },
+    {
+      "name": "industry_domain",
+      "label": "Industry/Domain",
+      "type": "text",
+      "placeholder": "Optional: Industry/Domain",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "target_customer",
+      "label": "Target Customer",
+      "type": "text",
+      "placeholder": "Optional: Target Customer",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "problem_pain_point",
+      "label": "Problem/Pain Point",
+      "type": "text",
+      "placeholder": "Optional: Problem/Pain Point",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "value_proposition_focus",
+      "label": "Value Proposition Focus",
+      "type": "text",
+      "placeholder": "Optional: Value Proposition Focus",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "trends_tech_to_leverage",
+      "label": "Trends/Tech to Leverage",
+      "type": "text",
+      "placeholder": "Optional: Trends/Tech to Leverage",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "constraints_criteria",
+      "label": "Constraints/Criteria",
+      "type": "text",
+      "placeholder": "Optional: Constraints/Criteria",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "output_detail_level",
+      "label": "Output Detail Level",
+      "type": "text",
+      "placeholder": "Optional: Output Detail Level",
+      "showIf": {
+        "pack": "product_ideation"
+      }
+    },
+    {
+      "name": "email_type_purpose",
+      "label": "Email Type/Purpose",
+      "type": "text",
+      "placeholder": "Optional: Email Type/Purpose",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "recipient_&_relationship",
+      "label": "Recipient & Relationship",
+      "type": "text",
+      "placeholder": "Optional: Recipient & Relationship",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "key_points_to_include",
+      "label": "Key Points to Include",
+      "type": "text",
+      "placeholder": "Optional: Key Points to Include",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "tone_formality",
+      "label": "Tone/Formality",
+      "type": "text",
+      "placeholder": "Optional: Tone/Formality",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "email_length",
+      "label": "Email Length",
+      "type": "text",
+      "placeholder": "Optional: Email Length",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "specific_phrases_or_style_guidelines",
+      "label": "Specific Phrases or Style Guidelines",
+      "type": "text",
+      "placeholder": "Optional: Specific Phrases or Style Guidelines",
+      "showIf": {
+        "pack": "smart_email_assistant"
+      }
+    },
+    {
+      "name": "topic_title",
+      "label": "Topic/Title",
+      "type": "text",
+      "placeholder": "Optional: Topic/Title",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "video_format_style",
+      "label": "Video Format/Style",
+      "type": "text",
+      "placeholder": "Optional: Video Format/Style",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "target_audience",
+      "label": "Target Audience",
+      "type": "text",
+      "placeholder": "Optional: Target Audience",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "tone_mood",
+      "label": "Tone/Mood",
+      "type": "text",
+      "placeholder": "Optional: Tone/Mood",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "duration_length",
+      "label": "Duration/Length",
+      "type": "text",
+      "placeholder": "Optional: Duration/Length",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "key_points_outline",
+      "label": "Key Points/Outline",
+      "type": "text",
+      "placeholder": "Optional: Key Points/Outline",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "visual_or_scene_directions",
+      "label": "Visual or Scene Directions",
+      "type": "text",
+      "placeholder": "Optional: Visual or Scene Directions",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "closing_message_cta",
+      "label": "Closing Message/CTA",
+      "type": "text",
+      "placeholder": "Optional: Closing Message/CTA",
+      "showIf": {
+        "pack": "video_script_generator"
+      }
+    },
+    {
+      "name": "topic_theme",
+      "label": "Topic/Theme",
+      "type": "text",
+      "placeholder": "Optional: Topic/Theme",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "target_audience",
+      "label": "Target Audience",
+      "type": "text",
+      "placeholder": "Optional: Target Audience",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "personal_story_or_insight",
+      "label": "Personal Story or Insight",
+      "type": "text",
+      "placeholder": "Optional: Personal Story or Insight",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "tone_style",
+      "label": "Tone/Style",
+      "type": "text",
+      "placeholder": "Optional: Tone/Style",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "call_to_action_cta",
+      "label": "Call-to-Action (CTA)",
+      "type": "text",
+      "placeholder": "Optional: Call-to-Action (CTA)",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "hashtags_keywords",
+      "label": "Hashtags/Keywords",
+      "type": "text",
+      "placeholder": "Optional: Hashtags/Keywords",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "length_format",
+      "label": "Length/Format",
+      "type": "text",
+      "placeholder": "Optional: Length/Format",
+      "showIf": {
+        "pack": "viral_linkedin_post"
+      }
+    },
+    {
+      "name": "custom_prompt",
+      "label": "Custom Instructions",
+      "type": "textarea",
+      "placeholder": "Describe what kind of prompt you want to generate",
+      "showIf": {
+        "pack": "custom_prompt"
+      }
+    }
+  ],
+  "body": {
+    "pack": "{{pack}}",
+    "inputs": {
+      "agent_name_role": "{{agent_name_role}}",
+      "objective_goal": "{{objective_goal}}",
+      "domain_context": "{{domain_context}}",
+      "tools_abilities": "{{tools_abilities}}",
+      "constraints_rules": "{{constraints_rules}}",
+      "persona_tone": "{{persona_tone}}",
+      "output_format": "{{output_format}}",
+      "recipient_profile": "{{recipient_profile}}",
+      "context_personalization": "{{context_personalization}}",
+      "sender_profile": "{{sender_profile}}",
+      "value_proposition": "{{value_proposition}}",
+      "ask_call_to_action": "{{ask_call_to_action}}",
+      "tone_style": "{{tone_style}}",
+      "subject_line": "{{subject_line}}",
+      "persona_role": "{{persona_role}}",
+      "task_objective": "{{task_objective}}",
+      "context_background": "{{context_background}}",
+      "format_output_requirements": "{{format_output_requirements}}",
+      "tone_style_guidelines": "{{tone_style_guidelines}}",
+      "examples_few_shot": "{{examples_few_shot}}",
+      "additional_instructions": "{{additional_instructions}}",
+      "programming_language": "{{programming_language}}",
+      "code_snippet": "{{code_snippet}}",
+      "error_message_issue": "{{error_message_issue}}",
+      "expected_behavior": "{{expected_behavior}}",
+      "steps_taken_attempts": "{{steps_taken_attempts}}",
+      "environment_details": "{{environment_details}}",
+      "output_preference": "{{output_preference}}",
+      "market_industry": "{{market_industry}}",
+      "geographic_scope": "{{geographic_scope}}",
+      "key_topics_questions": "{{key_topics_questions}}",
+      "customer_persona": "{{customer_persona}}",
+      "time_frame": "{{time_frame}}",
+      "preferred_format": "{{preferred_format}}",
+      "industry_domain": "{{industry_domain}}",
+      "target_customer": "{{target_customer}}",
+      "problem_pain_point": "{{problem_pain_point}}",
+      "value_proposition_focus": "{{value_proposition_focus}}",
+      "trends_tech_to_leverage": "{{trends_tech_to_leverage}}",
+      "constraints_criteria": "{{constraints_criteria}}",
+      "output_detail_level": "{{output_detail_level}}",
+      "email_type_purpose": "{{email_type_purpose}}",
+      "recipient_&_relationship": "{{recipient_&_relationship}}",
+      "key_points_to_include": "{{key_points_to_include}}",
+      "tone_formality": "{{tone_formality}}",
+      "email_length": "{{email_length}}",
+      "specific_phrases_or_style_guidelines": "{{specific_phrases_or_style_guidelines}}",
+      "topic_title": "{{topic_title}}",
+      "video_format_style": "{{video_format_style}}",
+      "target_audience": "{{target_audience}}",
+      "tone_mood": "{{tone_mood}}",
+      "duration_length": "{{duration_length}}",
+      "key_points_outline": "{{key_points_outline}}",
+      "visual_or_scene_directions": "{{visual_or_scene_directions}}",
+      "closing_message_cta": "{{closing_message_cta}}",
+      "topic_theme": "{{topic_theme}}",
+      "personal_story_or_insight": "{{personal_story_or_insight}}",
+      "call_to_action_cta": "{{call_to_action_cta}}",
+      "hashtags_keywords": "{{hashtags_keywords}}",
+      "length_format": "{{length_format}}",
+      "custom_prompt": "{{custom_prompt}}"
+    }
+  },
+  "output_key": "prompt"
+}
